@@ -31,3 +31,25 @@ Then get an address from the list, make a new LatLng objext and pass it's lat an
 Then add a new mapMarker to the map and pass the position and name in a MarkerOptions object
 then animate the camera
 
+Next, center the map on the location of the user
+
+Need permission - permission is already enabled in the manifest "ACCESS_FILE_LOCATION"
+if you add "ACCESS_COARSE_LOCATION" then it can access location from wifi or from cell signal
+
+Add check to onCreate to make sure locations access is enabled
+
+Add method the fires when permission is requested . this takea an if statement that checks all the premissions that were grandted by the request
+
+The define getLocation method
+
+when you get to locationManager.requestLocationUpdates, then need to add an interface implementation to MapsActivity class. Make this class implement the LocationListener class as well. add the methods required.
+
+Copy and paste the third nested if statement from the getLocation method into the onLocationChanged method from the new interface
+
+Test
+
+Add route from gpsVisualizer.com -->.gpx file for testing
+
+add method onPause to handle when the app is not in the foreground. it will tell the location manager to not update the location
+
+add method onResume to handle when app comes back into the foreground
